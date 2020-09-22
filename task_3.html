@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        var a = parseInt(prompt('A:'));
+        var b = parseInt(prompt('B:'));
+
+        /*если a и b положительные, вывести их разность*/
+        if ((a >= 0) && (b >= 0)) {
+            alert(a - b);
+        }
+
+        /*если а и b отрицательные, вывести их произведение*/
+        else if ((a < 0) && (b < 0)) {
+            alert(a * b);
+        }
+
+        /*если а и b разных знаков, вывести их сумму*/
+        //else if (((a < 0) && (b >= 0)) || ((a >= 0) && (b < 0))) {
+        //    alert(a + b);
+        //}
+        else {
+            alert(a + b);
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
