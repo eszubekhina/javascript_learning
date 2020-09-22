@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        /*8### 5. Реализовать основные 4 арифметические операции в виде функций с двумя параметрами. Обязательно использовать оператор return*/
+
+        function operationPlus(a, b) {
+            return a + b;
+        }
+
+        function operationMinus(a, b) {
+            return a - b;
+        }
+
+        function operationDivision(a, b) {
+            return a / b;
+        }
+
+        function operationMultiplication(a, b) {
+            return a * b;
+        }
+
+        function mathOperation(arg1, arg2, operation) {
+
+            switch (operation) {
+                case "+":
+                    console.log("Результат: " + operationPlus(arg1, arg2));
+                    break;
+                case "-":
+                    console.log("Результат: " + operationMinus(arg1, arg2));
+                    break;
+                case "/":
+                    console.log("Результат: " + operationDivision(arg1, arg2));
+                    break;
+                case "*":
+                    console.log("Результат: " + operationMultiplication(arg1, arg2));
+                    break;
+                default:
+                    console.log("Неизвестный тип операции");
+            }
+        }
+
+        var a = +prompt("Введите любое первое число");
+        var b = +prompt("Введите любое второе число");
+        var oper = prompt("Введите тип операции (+ ; -; *; /)");
+
+        mathOperation(a, b, oper);
+
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
