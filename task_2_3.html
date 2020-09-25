@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        // Получаем количество чисел которые нам надо вывести
+        var count = window.prompt('Please enter number.',);
+
+        // Определяем базовое число
+        var currentNumber = 2;
+
+        //Продолжаем цикл до тех пор пока количество требуемых для отображения чисел не достигнет нуля  
+        while (count != 0) {
+            if (isNatural(currentNumber)) {
+                console.log(currentNumber);
+                count--;
+            }
+            currentNumber++;
+        }
+
+        // Определяем функцию которая проверяет натурайное ли число или нет
+        function isNatural(number) {
+            for (var i = 2; i <= number / 2; i++) {
+                if (number % i == 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
