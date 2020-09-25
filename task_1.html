@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        var goods = [
+            {
+                title: "товар 1",
+                price: 100,
+                count: 5
+            },
+            {
+                title: "товар 2",
+                price: 200,
+                count: 4
+            },
+            {
+                title: "товар 3",
+                price: 300,
+                count: 7
+            }
+        ];
+
+        function sumCart(items) {
+            var s = 0; //сумма всех товаров равна 0
+            for (var item of items) {
+                s = s + item.price * item.count;
+            }
+            return s
+        }
+
+        alert(sumCart(goods));
+
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
