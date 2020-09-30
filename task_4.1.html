@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        var obj = {};
+
+        function parsing_number(number) {
+
+            if ((number < 0) || (number > 999) || (!Number.isInteger(number))) {
+                obj = {};
+                console.log("Число должно быть целым в диапозоне 0 - 999");
+                return obj;
+            }
+
+            obj.Units = Math.trunc(number % 10);
+            obj.Dozens = Math.trunc(number / 10 % 10);;
+            obj.Hundreds = Math.trunc(number / 100);
+
+            return obj;
+        }
+
+        var num_xxx = +prompt('Введите число от 0 до 999: ');
+
+        var result = parsing_number(num_xxx);
+        alert("Сотни: " + obj.Hundreds + "; Десятки: " + obj.Dozens + "; Единицы: " + obj.Units);
+        console.log(result);
+
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
