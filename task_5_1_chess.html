@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess</title>
+</head>
+
+<body>
+    <script>
+        function draw() {
+            var table = document.createElement('table');
+            var flag = true;
+
+            var trr = document.createElement('tr');
+            var trr2 = document.createElement('tr');
+            var arr = [' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+
+            // Печатаем пустую клетку наверху
+            {
+                var td = document.createElement('td');
+                td.style.width = '50px';
+                td.style.height = '50px';
+                td.style.background = 'white';
+                td.innerHTML = arr[0];
+                trr.appendChild(td);
+            }
+            // Печатаем перевёрнутые буквы
+            for (var k = 8; k > 0; k--) {
+                var td = document.createElement('td');
+                td.style.width = '50px';
+                td.style.height = '50px';
+                td.style.background = 'white';
+                td.style.textAlign = 'center';
+                td.style.transform = 'rotate(180deg)';
+                td.innerHTML = arr[k];
+                trr.appendChild(td);
+            }
+            table.appendChild(trr);
+
+            // Печатаем ячейки шахматного поля с фигурами
+            for (var i = 0; i < 8; i++) {
+                var tr = document.createElement('tr');
+
+                // Создаем ячейку для цифр
+                var tdd = document.createElement('td');
+                tdd.style.width = '50px';
+                tdd.style.height = '50px';
+                tdd.style.textAlign = 'center';
+                tdd.innerHTML = 8 - i;
+                tr.appendChild(tdd);
+
+                for (var j = 0; j < 8; j++) {
+                    if (j == 0) {
+                        flag = !flag;
+                    }
+
+                    var td = document.createElement('td');
+
+                    td.style.width = '50px';
+                    td.style.height = '50px';
+                    if (flag) {
+                        td.style.background = 'black';
+                        td.style.color = 'white';
+                    } else {
+                        td.style.background = 'white';
+                        td.style.border = '1px solid black';
+                        td.style.color = 'black';
+                    }
+                    td.style.textAlign = 'center';
+                    td.style.fontSize = '40px';
+
+                    // Печатаем чёрные пешки
+                    if (i == 1) {
+                        td.innerHTML = '&#9823';
+                    }
+
+                    // Печатаем белые пешки
+                    if (i == 6) {
+                        td.innerHTML = '&#9817';
+                    }
+
+                    // Печатаем чёрные ладьи
+                    if (((i == 0) && (j == 0)) || ((i == 0) && (j == 7))) {
+                        td.innerHTML = '&#9820';
+                    }
+
+                    // Печатаем белые ладьи
+                    if (((i == 7) && (j == 0)) || ((i == 7) && (j == 7))) {
+                        td.innerHTML = '&#9814';
+                    }
+
+                    // Печатаем чёрных коней
+                    if (((i == 0) && (j == 1)) || ((i == 0) && (j == 6))) {
+                        td.innerHTML = '&#9822';
+                    }
+
+                    // Печатаем белых коней
+                    if (((i == 7) && (j == 1)) || ((i == 7) && (j == 6))) {
+                        td.innerHTML = '&#9816';
+                    }
+
+                    // Печатаем чёрного слона
+                    if (((i == 0) && (j == 2)) || ((i == 0) && (j == 5))) {
+                        td.innerHTML = '&#9821';
+                    }
+
+                    // Печатаем белых слонов
+                    if (((i == 7) && (j == 2)) || ((i == 7) && (j == 5))) {
+                        td.innerHTML = '&#9815';
+                    }
+
+                    // Печатаем чёрного ферзя
+                    if ((i == 0) && (j == 3)) {
+                        td.innerHTML = '&#9819';
+                    }
+
+                    // Печатаем белого ферзя
+                    if ((i == 7) && (j == 3)) {
+                        td.innerHTML = '&#9813';
+                    }
+
+                    // Печатаем чёрного короля
+                    if ((i == 0) && (j == 4)) {
+                        td.innerHTML = '&#9818';
+                    }
+
+                    // Печатаем белого короля
+                    if ((i == 7) && (j == 4)) {
+                        td.innerHTML = '&#9812';
+                    }
+
+                    tr.appendChild(td);
+                    flag = !flag;
+                }
+                var td_last = document.createElement('td');
+                td_last.style.width = '50px';
+                td_last.style.height = '50px';
+                td_last.style.background = 'white';
+                td_last.style.textAlign = 'center';
+                td_last.style.transform = 'rotate(180deg)';
+                td_last.innerHTML = i + 1;
+                tr.appendChild(td_last);
+                table.appendChild(tr);
+            }
+
+            // Печатаем буквы внизу
+            for (var k = 0; k < 9; k++) {
+                var td = document.createElement('td');
+                td.style.width = '50px';
+                td.style.height = '50px';
+                td.style.background = 'white';
+                td.style.textAlign = 'center';
+                td.innerHTML = arr[k];
+                trr2.appendChild(td);
+            }
+            table.appendChild(trr2);
+
+            document.body.appendChild(table);
+        }
+        draw();
+
+    </script>
+</body>
+
+</html>
