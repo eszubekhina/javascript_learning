@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo</title>
+
+
+    <style>
+        .center_img {
+            text-align: center;
+        }
+
+        #pic_cntr {
+            text-align: center;
+        }
+
+        img {
+            cursor: pointer;
+        }
+
+        .big_img {
+            width: 1000px;
+            text-align: center;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <div class="center_img">
+        <img id="img_1" src="img_small/mountains_small.jpg" onclick=f() alt="">
+        <img src="img_small/green_mountains_small.jpg" alt="" onclick=f()>
+        <img src="img_small/red_m_small.jpg" alt="" onclick=f()>
+    </div>
+
+    <div id="pic_cntr"></div>
+
+    <script>
+
+        var img1 = document.querySelectorAll("img")[0];
+        var img2 = document.querySelectorAll("img")[1];
+        var img3 = document.querySelectorAll("img")[2];
+
+        function error_handler() {
+            alert("Фото не найдено");
+        }
+
+        function f(e) {
+
+            var pc = document.getElementById("pic_cntr");
+
+
+            switch (e.target) {//target - источник события, то есть, тот элемент на который был клик 
+                case img1:
+
+                    pc.innerHTML = "<img src=img_big/mountains_big.jpg class=big_img>";
+                    break;
+
+                case img2:
+
+                    pc.innerHTML = "<img src=img_big/green_mountains_big.jpg class=big_img>";
+                    break;
+
+                case img3:
+
+                    pc.innerHTML = "<img src=img_big/red_m_big.jpg class=big_img onerror=error_handler()>";
+                    break;
+            }
+        }
+
+        var img = document.querySelectorAll("img");
+        for (var item of img) {
+            item.onclick = f;
+        }
+
+    </script>
+
+</body>
+
+</html>
