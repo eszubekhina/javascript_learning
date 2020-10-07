@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+
+    <style>
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+
+        .img_size {
+            width: 100%;
+        }
+
+        .button-nav {
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <img src="" alt="" name="r" class="img_size">
+    </div>
+
+    <div class="button-nav">
+        <input type="button" value="Назад" onClick="bck()">
+        <input type="button" value="Вперед" onClick="frw()">
+    </div>
+
+    <script>
+
+        var current = 2;
+
+        // массив картинок
+
+        picture = new Array();
+        picture[0] = new Image();   // картинка 1
+        picture[1] = new Image();   // картинка 2
+        picture[2] = new Image();   // картинка 3
+        picture[3] = new Image();   // картинка 4
+        picture[4] = new Image();   // картинка 5
+
+        quantity = picture.length;
+
+        //картинки
+
+        picture[0].src = "img/animal.jpg"
+        picture[1].src = "img/tropical.jpg"
+        picture[2].src = "img/waves.jpg"
+        picture[3].src = "img/trees.jpg"
+        picture[4].src = "img/starfish.jpg"
+
+        document.images['r'].src = picture[current - 1].src;
+
+        function frw() {
+            if (current < quantity) {
+                current++;
+                document.images['r'].src = picture[current - 1].src;
+            } else if (current == quantity) {
+                current = 1;
+                document.images['r'].src = picture[current - 1].src;
+            }
+        }
+        function bck() {
+            if (current > 1) {
+                current--;
+                document.images['r'].src = picture[current - 1].src;
+            } else if (current == 1) {
+                current = picture.length;//5;
+                document.images['r'].src = picture[current - 1].src;
+            }
+        }
+
+    </script>
+
+
+</body>
+
+</html>
